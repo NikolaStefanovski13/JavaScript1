@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Challenge Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        h1 { color: #333; }
+        div { margin-bottom: 20px; }
+        input, button { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Challenge 1</h1>
+    
+    <div>
+        <h2>Task 1: Check if a number is even</h2>
+        <input type="number" id="evenCheck" placeholder="Enter a number">
+        <button onclick="isEven(document.getElementById('evenCheck').value)">Check</button>
+    </div>
+
+    <div>
+        <h2>Task 2: Find even numbers divisible by n</h2>
+        <input type="number" id="divisibleBy" placeholder="Enter n">
+        <button onclick="findEvenDivisible(document.getElementById('divisibleBy').value)">Find</button>
+    </div>
+
+    <div>
+        <h2>Task 3: Analyze numbers</h2>
+        <input type="text" id="numberList" placeholder="Enter numbers separated by commas">
+        <button onclick="analyzeNumbers(document.getElementById('numberList').value.split(',').map(Number))">Analyze</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script src="one.js"></script>
+    <script>
+        const originalLog = console.log;
+        console.log = function() {
+            originalLog.apply(console, arguments);
+            const output = document.getElementById('output');
+            output.innerHTML += Array.from(arguments).join(' ') + '<br>';
+        };
+    </script>
+</body>
+</html>
